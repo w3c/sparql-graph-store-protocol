@@ -17,7 +17,7 @@
         edDraftURI:           "https://w3c.github.io/sparql-graph-store-protocol/spec/",
         testSuiteURI:         "https://w3c.github.io/rdf-tests/",
         shortName:            "sparql12-graph-store-protocol",
-        copyrightStart:       "2008",
+        copyrightStart:       "2012",
          
         github:               "https://github.com/w3c/sparql-graph-store-protocol",
         wgPublicList:         "public-rdf-star-wg",
@@ -32,7 +32,7 @@
         previousMaturity:     "REC",
         
          editors: [
-           { name: "RDF Star Working Group" }
+           { name: "Andy Seaborne", w3cid: "29909"},
          ],
         formerEditors: [
           { name: "Chimezie Ogbuji" },
@@ -44,7 +44,7 @@
       };
     </script>
 
-    <style type="text/css">
+    <style>
       @import url("local.css");
 
       /* ReSpec */
@@ -89,9 +89,14 @@
   <body>
     <section id="abstract">
       <h2>Abstract</h2>
-<p>This document describes the use of HTTP operations for the purpose of managing a collection of RDF graphs. This interface is an alternative to the SPARQL 1.1 Update protocol. Most of the
-    operations defined here can be performed using that interface, but for some clients or servers, this interface may be easier to implement or work with. This specification may serve as a
-    non-normative suggestion for HTTP operations on RDF graphs which are managed outside of a SPARQL 1.1 graph store.</p>
+      <p>
+        This document describes the use of HTTP operations for the purpose of managing a
+        collection of RDF graphs.  This interface is an alternative to        [[[SPARQL12-PROTOCOL]]]. Most of the operations defined here can be performed
+        using that interface, but for some clients or servers, this interface may be
+        easier to implement or work with. This specification may serve as a non-normative
+        suggestion for HTTP operations on RDF graphs which are managed outside of a SPARQL
+        graph store.
+      </p>
     </section>
 
     <section id="sotd" class="introductory">
@@ -102,10 +107,7 @@
       </p>
     </section>
 
-    <!--
-        @@ Includes too much - all RDF documents.
-    <section id="related" data-include="./common/related.html"></section>
-    -->
+    <section id="related" data-include="common/sparql-related.html"></section>
 
     <section id="sparql12-documents" class="introductory">
       <h2>SPARQL 1.2 Documents</h2>
@@ -156,7 +158,7 @@ href="#rfc2119">[RFC2119]</a>.</p>
     protocol, the <a href="#rfc2616">[RFC2616]</a> definition is used (unless the term "RDF Resource" is used explicitly): a network-accessible data object or service identified by an IRI.</li>
     <li><em>Resolvable URI</em> - A URI whose resource potentially has one or more representations available via invoking HTTP <strong>GET</strong> on the URI as defined in <a href=
     "#WEBARCH">[WEBARCH]</a>.</li>
-    <em>Serialize (verb.)</em> - When used in a sentence where the subject is an RDF document and the object is an RDF graph, this is understood to mean that the result of parsing the document is the graph.
+    <li><em>Serialize (verb.)</em> - When used in a sentence where the subject is an RDF document and the object is an RDF graph, this is understood to mean that the result of parsing the document is the graph.
     <li><em>RDF document</em> - A serialization of an RDF Graph into a concrete syntax, typically an RDF/XML or Turtle document.</li>
     <li><em>Graph Store</em> - A mutable repository of RDF graphs managed by one or more services <a href="#SPARQL-UPDATE">[SPARQL-UPDATE]</a>.</li>
     <li><em>Graph IRI</em> - An IRI involved in this protocol that is specified as a request URI or embedded as the query component of a request URI and corresponds to the IRI of a graph in the
