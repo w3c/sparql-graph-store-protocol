@@ -566,7 +566,9 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           this form MUST perform the indicated operation on the RDF graph
           content identified by the IRI embedded in the query component where
           the IRI is the result of percent-decoding the value associated with
-          the <em>graph</em> key. The query string IRI MUST be an absolute IRI
+          the <em>graph</em> key, and interpreting the resulting octets as a
+          UTF-8 [[!RFC3629]] encoded string of the IRI value.
+          The query string IRI MUST be an absolute IRI
           and the server MUST respond with a
           <code>400 Bad Request</code> if it is not. The diagram below
           illustrates this.
