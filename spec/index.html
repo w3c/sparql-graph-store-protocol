@@ -627,7 +627,9 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
         include any mention of a graph.</p>
       <p>
         If the <em>Accept</em> header is not provided with a GET request, the
-        server MUST return one of RDF XML, Turtle, or N-Triples. For operations
+        server MUST return a response using an RDF serialization format (such
+        as Turtle [[?RDF12-TURTLE]], RDF/XML [[?RDF12-XML]], N-Triples
+        [[?RDF12-N-TRIPLES]] or JSON-LD [[?JSON-LD11]]). For operations
         involving an RDF payload (PUT and POST), the server MUST parse the RDF
         payload according to media type specified in the <em>Content-Type</em>
         header if it is provided in the request. If the header is not provided,
@@ -985,9 +987,14 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
       <h2>Conformance</h2>
     </section>
 
-    <section id="changes">
-      <h2>Changes</h2>
-      The document title changed from "SPARQL 1.1 Graph Store HTTP Protocol" to "SPARQL 1.2 Graph Store Protocol".
+    <section id="changes-1-1" class="appendix informative">
+      <h2>Changes between SPARQL 1.1 Graph Store Protocol and SPARQL 1.2 Graph Store Protocol</h2>
+      <p>This specification extends and updates the <a href="https://www.w3.org/TR/2013/REC-sparql11-http-rdf-update-20130321/">SPARQL 1.1 Graph Store Protocol of March, 2013</a>. The significant changes
+      are:</p>
+      <ul>
+        <li>Changed the required media type of a GET request with no Accept header from one of RDF/XML, Turtle, or N-Triples to any RDF format</li>
+        <li>Added clarifying language indicating that indirect graph IRIs are UTF-8 encoded.</li>
+      </ul>
     </section>
     
     <section id="sec-bibliography">
