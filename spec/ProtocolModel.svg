@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 536 327" width="536" height="327" role="img" aria-labelledby="title description">
+  <title id="title">Direct graph reference protocol model</title>
+  <desc id="description">HTTP requests identify RDF graph content by an IRI. PUT, DELETE, and POST requests may carry an RDF payload, while GET responses serialize the RDF graph. Blue arrows identify resources, red arrows show interpretation as graph content, and orange arrows show serialization.</desc>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --background: #ffffff;
+      --foreground: #111827;
+      --muted: #4b5563;
+      --surface: #ffffff;
+      --surface-alt: #e8eef5;
+      --surface-edge: #64748b;
+      --identify: #145fd7;
+      --interpret: #d92d3f;
+      --serialize: #e97817;
+      --graph: #194f91;
+      --graph-light: #dceafe;
+      --shadow: #00000055;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background: #000000;
+        --foreground: #f3f4f6;
+        --muted: #cbd5e1;
+        --surface: #1f2937;
+        --surface-alt: #334155;
+        --surface-edge: #94a3b8;
+        --identify: #69a5ff;
+        --interpret: #ff6475;
+        --serialize: #f6a04d;
+        --graph: #8bbcff;
+        --graph-light: #19365f;
+        --shadow: #000000aa;
+      }
+    }
+
+    .bg { fill: var(--background); }
+    .text { fill: var(--foreground); font: 13px Arial, Helvetica, sans-serif; }
+    .small { font-size: 12px; }
+    .label { font-weight: 700; }
+    .muted { fill: var(--muted); }
+    .identify { fill: none; stroke: var(--identify); }
+    .interpret { fill: none; stroke: var(--interpret); }
+    .serialize { fill: none; stroke: var(--serialize); }
+    .request { fill: none; stroke: var(--foreground); }
+    .line { stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-line { fill: none; stroke: var(--surface-edge); stroke-width: 1.2; stroke-linejoin: round; }
+  </style>
+
+  <defs>
+    <marker id="arrow-request" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--foreground)"/>
+    </marker>
+    <marker id="arrow-identify" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--identify)"/>
+    </marker>
+    <marker id="arrow-interpret" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--interpret)"/>
+    </marker>
+    <marker id="arrow-serialize" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--serialize)"/>
+    </marker>
+    <filter id="shadow" x="-25%" y="-30%" width="150%" height="170%">
+      <feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="var(--shadow)"/>
+    </filter>
+    <linearGradient id="server-face" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="var(--surface-alt)"/>
+      <stop offset="1" stop-color="var(--surface)"/>
+    </linearGradient>
+  </defs>
+
+  <rect class="bg" width="536" height="327"/>
+
+  <!-- Request target and graph store -->
+  <g aria-label="An IRI identifies a graph store">
+    <text class="text" x="231" y="15"><tspan fill="var(--identify)" font-style="italic">IRI</tspan><tspan> ∈ ResolvableIdentifier</tspan></text>
+    <text class="text" x="188" y="35"><tspan>[ </tspan><tspan fill="var(--identify)" font-style="italic">IRI</tspan><tspan>, </tspan></text>
+
+    <!-- Compact RDF graph-store symbol -->
+    <g transform="translate(222 23)" aria-label="Graph store">
+      <circle cx="9" cy="8" r="3.2" fill="var(--graph)"/>
+      <circle cx="2" cy="12" r="2.5" fill="var(--graph)"/>
+      <circle cx="10" cy="17" r="2.5" fill="var(--graph)"/>
+      <path d="M4 11 7 9 M8 11l1 4 M4 13l4 3" stroke="var(--graph)" stroke-width="1.4"/>
+    </g>
+    <text class="text" x="240" y="35">] ∈ Graph Store</text>
+
+    <g transform="translate(225 45)" aria-label="HTTP endpoint">
+      <path d="M2 2h39l-2 31H0z" fill="url(#server-face)" stroke="var(--surface-edge)"/>
+      <path d="M5 6h31v12H4z" fill="var(--surface-alt)" stroke="var(--surface-edge)"/>
+      <path d="M1 33h38l5 5H-3z" fill="var(--surface-alt)" stroke="var(--surface-edge)"/>
+      <text class="text small" x="8" y="30" font-style="italic">HTTP</text>
+    </g>
+    <path class="identify line" d="M207 49v20c0 16 8 25 22 31" marker-end="url(#arrow-identify)"/>
+  </g>
+
+  <!-- RDF graph content -->
+  <g aria-label="RDF graph content">
+    <ellipse cx="269" cy="127" rx="77" ry="36" fill="var(--surface)" stroke="var(--foreground)" filter="url(#shadow)"/>
+    <text class="text" x="269" y="131" text-anchor="middle">RDF Graph Content</text>
+  </g>
+
+  <!-- HTTP request and response paths -->
+  <g aria-label="HTTP requests and responses">
+    <text class="text label" x="2" y="95">PUT / DELETE / POST</text>
+    <path class="request line" d="M3 102h172" marker-end="url(#arrow-request)"/>
+    <text class="text" x="10" y="120">RDF payload (optional)</text>
+
+    <text class="text label" x="149" y="138">GET</text>
+    <path class="request line" d="M175 147H53" marker-end="url(#arrow-request)"/>
+    <text class="text small" x="66" y="166">conditional headers</text>
+  </g>
+
+  <!-- Serialized RDF document -->
+  <g transform="translate(24 130) rotate(-14 10 17)" aria-label="RDF document">
+    <path d="M0 0h15l7 7v26H0z" fill="var(--surface)" stroke="var(--surface-edge)"/>
+    <path d="M15 0v7h7" class="icon-line"/>
+    <text class="muted" x="4" y="15" font-family="monospace" font-size="6">RDF</text>
+    <path class="icon-line" d="M4 19h13M4 23h13M4 27h9"/>
+  </g>
+  <path class="serialize line" d="M39 166v27c0 13 10 20 43 20" marker-end="url(#arrow-serialize)"/>
+
+  <!-- Interpreted RDF graph -->
+  <g transform="translate(98 199)" aria-label="RDF graph">
+    <path d="M9 9 1 14m8-5 1 13M9 9l8-5m-7 18 8-7m-1-11 1 11" stroke="var(--graph)" stroke-width="1.8"/>
+    <circle cx="9" cy="9" r="4" fill="var(--graph-light)" stroke="var(--graph)"/>
+    <circle cx="1" cy="14" r="3" fill="var(--graph)"/>
+    <circle cx="10" cy="22" r="3" fill="var(--graph)"/>
+    <circle cx="17" cy="4" r="3" fill="var(--graph)"/>
+    <circle cx="18" cy="15" r="4" fill="var(--graph-light)" stroke="var(--graph)"/>
+    <text class="text small" x="-15" y="37">RDF Graph</text>
+  </g>
+  <path class="interpret line" d="M135 213h25c22 0 42-12 73-57" marker-end="url(#arrow-interpret)"/>
+
+  <!-- Legend -->
+  <g aria-label="Legend">
+    <text class="text small" x="443" y="218" text-anchor="end">HTTP request / response</text>
+    <path class="request line" d="M456 213h66" marker-end="url(#arrow-request)"/>
+
+    <text class="text small" x="443" y="237" text-anchor="end">identifies</text>
+    <path class="identify line" d="M456 232h66" marker-end="url(#arrow-identify)"/>
+
+    <text class="text small" x="443" y="256" text-anchor="end" font-style="italic">interpreted as</text>
+    <path class="interpret line" d="M456 251h66" marker-end="url(#arrow-interpret)"/>
+
+    <text class="text small" x="443" y="285" text-anchor="end">serialization of</text>
+    <path class="serialize line" d="M456 280h66" marker-end="url(#arrow-serialize)"/>
+
+    <text class="text small" x="443" y="313" text-anchor="end">RDF payload</text>
+    <g transform="translate(460 292) rotate(-14 10 15)">
+      <path d="M0 0h14l7 7v26H0z" fill="var(--surface)" stroke="var(--surface-edge)"/>
+      <path d="M14 0v7h7" class="icon-line"/>
+      <text class="muted" x="3" y="15" font-family="monospace" font-size="5.5">RDF</text>
+      <path class="icon-line" d="M3 19h13M3 23h13M3 27h9"/>
+    </g>
+  </g>
+</svg>

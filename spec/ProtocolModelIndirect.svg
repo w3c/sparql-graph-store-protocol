@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 508 196" width="508" height="196" role="img" aria-labelledby="title description">
+  <title id="title">Indirect graph reference protocol model</title>
+  <desc id="description">PUT, DELETE, POST, and GET requests operate on RDF graph content. Both an encoded graph IRI and the complete request IRI indirectly identify that graph content.</desc>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --background: #ffffff;
+      --foreground: #111827;
+      --muted: #4b5563;
+      --surface: #ffffff;
+      --surface-alt: #e8eef5;
+      --surface-edge: #64748b;
+      --identify: #145fd7;
+      --accent: #194f91;
+      --accent-light: #dceafe;
+      --shadow: #00000055;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background: #000000;
+        --foreground: #f3f4f6;
+        --muted: #cbd5e1;
+        --surface: #1f2937;
+        --surface-alt: #334155;
+        --surface-edge: #94a3b8;
+        --identify: #69a5ff;
+        --accent: #8bbcff;
+        --accent-light: #19365f;
+        --shadow: #000000aa;
+      }
+    }
+
+    .bg { fill: var(--background); }
+    .text { fill: var(--foreground); font: 13px Arial, Helvetica, sans-serif; }
+    .small { font-size: 12px; }
+    .label { font-weight: 700; }
+    .request { fill: none; stroke: var(--foreground); }
+    .identify { fill: none; stroke: var(--identify); }
+    .line { stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-line { fill: none; stroke: var(--surface-edge); stroke-width: 1.2; stroke-linejoin: round; }
+  </style>
+
+  <defs>
+    <marker id="arrow-request" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 10 5 0 10z" fill="var(--foreground)"/>
+    </marker>
+    <marker id="arrow-identify" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 10 5 0 10z" fill="var(--identify)"/>
+    </marker>
+    <filter id="shadow" x="-25%" y="-35%" width="150%" height="180%">
+      <feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="var(--shadow)"/>
+    </filter>
+    <linearGradient id="server-face" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="var(--surface-alt)"/>
+      <stop offset="1" stop-color="var(--surface)"/>
+    </linearGradient>
+  </defs>
+
+  <rect class="bg" width="508" height="196"/>
+
+  <!-- HTTP server -->
+  <g transform="translate(83 2)" aria-label="HTTP server">
+    <path d="M8 1 47 8l-3 40-37-6z" fill="url(#server-face)" stroke="var(--surface-edge)"/>
+    <path d="m8 1 14-1 35 6-10 2zM47 8l10-2-3 37-10 5z" fill="var(--surface-alt)" stroke="var(--surface-edge)"/>
+    <path d="M13 8l28 5-1 12-28-5zM12 25l28 5-1 8-28-5z" fill="var(--surface-alt)" stroke="var(--surface-edge)"/>
+    <circle cx="10" cy="40" r="12" fill="var(--accent-light)" stroke="var(--accent)" stroke-width="1.2"/>
+    <path d="M-1 40h22M10 28c-5 5-5 19 0 24m0-24c5 5 5 19 0 24M2 33c5 3 11 3 16 0M2 47c5-3 11-3 16 0" fill="none" stroke="var(--accent)" stroke-width="1"/>
+  </g>
+
+  <!-- HTTP request and response paths -->
+  <g aria-label="HTTP requests and responses">
+    <text class="text label" x="2" y="65">PUT / DELETE / POST</text>
+    <path class="request line" d="M3 72h172" marker-end="url(#arrow-request)"/>
+    <text class="text" x="10" y="90">RDF payload (optional)</text>
+
+    <text class="text label" x="149" y="109">GET</text>
+    <path class="request line" d="M175 120H53" marker-end="url(#arrow-request)"/>
+    <text class="text small" x="66" y="139">conditional headers</text>
+  </g>
+
+  <!-- RDF graph content -->
+  <g aria-label="RDF graph content">
+    <ellipse cx="260" cy="95" rx="77" ry="34" fill="var(--surface)" stroke="var(--foreground)" filter="url(#shadow)"/>
+    <text class="text" x="260" y="99" text-anchor="middle">RDF Graph Content</text>
+  </g>
+
+  <!-- Indirect identifiers -->
+  <g aria-label="Indirect identifiers">
+    <path class="identify line" d="M409 95h-62" marker-end="url(#arrow-identify)"/>
+    <text class="text small" x="420" y="99">...encoded IRI...</text>
+
+    <path class="identify line" d="M260 169v-36" marker-end="url(#arrow-identify)"/>
+    <text class="text small" x="260" y="191" text-anchor="middle">
+      <tspan>http://..?</tspan><tspan font-weight="700">graph</tspan><tspan>=...encoded IRI...</tspan>
+    </text>
+  </g>
+</svg>

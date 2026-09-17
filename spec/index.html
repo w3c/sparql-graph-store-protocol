@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
+    <meta name="color-scheme" content="light dark" />
     <title>SPARQL 1.2 Graph Store Protocol</title>
 
     <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
@@ -18,7 +19,7 @@
         testSuiteURI:         "https://w3c.github.io/rdf-tests/",
         shortName:            "sparql12-graph-store-protocol",
         copyrightStart:       "2012",
-         
+
         github:               "https://github.com/w3c/sparql-graph-store-protocol",
         wgPublicList:         "public-rdf-star-wg",
 
@@ -29,7 +30,7 @@
         prevRecURI:           "https://www.w3.org/TR/2013/REC-sparql11-http-rdf-update-20130321",
         prevRecShortname:     "sparql11-graph-store-protocol",
         previousMaturity:     "REC",
-        
+
         editors: [
           { name: "Andy Seaborne", w3cid: "29909"},
           { name: "Thomas Pellissier Tanon", w3cid: "73758"},
@@ -39,301 +40,10 @@
         ],
 
         //doJsonLd:     true,
-        
+
         lint: { "no-unused-dfns": false }
       };
     </script>
-
-    <style>
-      /* @import url("local.css"); */
-      /* Inlined to make preview work */
-
-/* CSS For SPARQL Query */
-
-/* In-progress working draft artifacts - to be removed eventually */
-  .issue	{ background-color: #fdd;
-                  font-size: 88% ; }
-  .add		{ background-color: #7fff7f }
-  .remove	{ background-color: #ff7f7f }
-ul.issue	{}
-  .issueBlock	{ margin: 1em 4em 1em 2.5em ; /* Top Right Bottom Left */
-                  padding: 1ex;
-	          /*overflow: auto;*/
-                  page-break-inside: avoid ; }
-  .issueTopic	{ font-weight: bold ; }
-
- .todo		{ font-size: 80% ; color: #444 ; }
-p.todo		{}
-
-.wgNote	{ border: 0.2em solid red;
-      padding: 0.5em ;
-      margin: 1em 4em 1em 2em ; }
-
-.box     { border: thin solid #888888;
-           page-break-inside: avoid ;
-           background-color: #F8F8F8 ; padding:1em ;
-           margin-left:0 ; margin-right: 2ex; 
-           margin-top: 0.1ex ; margin-bottom: 0.1ex ;
-         }
-
-/* Misc WD stuff */
-span.cvs-id     {color: gray; font-size:80%; display: block; }
-
-/* == General Tag Treatment == */
-pre		 { margin: 1em 4em 1em 2.5em ; /* Top Right Bottom Left */
-                   padding: 1ex;
-	           /*overflow: auto;*/
-                   page-break-inside: avoid ; }
-
-/* Tables */
-table, td	{ text-align: left; }
-td, th   { border-style: solid;
-                  border-width: 1px;
-                  border-color: black;
-                  border-bottom-color: gray;
-                  border-right-color: gray; }
-td.annotation, th.annotation { border-style: none; border-bottom-style: dotted; }
-table.plain	{ border-spacing: 0px; padding: 0px ; border-collapse: collapse ; }
-                  /* cellpadding="0" cellspacing="1" style="border-collapse: collapse */
-
-
-th.major	{ background-color: #005a9c;
-                  color: white; }
-.subHeading	{ text-align: left;
-                  background-color: #CCCCCC; }
-th, td		{ padding: 3px; }
-td		{ font-size: 85%; }
-th a:link	{ text-decoration: none; }
-th a:hover	{ background-color:#FFFF99;
-                  text-decoration: underline; }
-
-/* == Prototypes == */
-pre.prototype	{ background-color:#f7f8ff;
-                  border:thin solid #8888aa;
-                  margin: 1em 4em 1em 0em ; }
-.return, .type	{ color: #177 }
-
-/* Definitions */
-.defn		{ margin-left:0 ; margin-right: 2ex; 
-                  margin-top: 0.1ex ; margin-bottom: 0.1ex ;
-                  /*border: double 1px #888888; *//* Buggy */
-                  border: thin solid #888888;
-                  padding: 1ex 2ex 0.5ex 2ex ; /* top, right, bottom, left */
-                  page-break-inside: avoid ;
-                  background-color: #F0F8F8 ; }
-div.defn p	{ margin-top: 1ex ; margin-bottom: 1.5ex ;}
-div.defn ul	{ margin-top: 1ex ; margin-bottom: 1.5ex ; }
-@media print	{ .defn { margin: 1em 1em 1em 1em ; } }
-span.definedTerm	{font-weight: bold;}
-
-div.grammarExtract
-                { border: thin solid #888888;
-                  padding: 1ex 2ex 1ex 2ex ; /* top, right, bottom, left */
-                  margin: 1em 6em 1em 2em ; 
-                  page-break-inside: avoid ;
-                  background-color: #F8F8F8 ; }
-
-pre.codeBlock  { font-family:monospace ; page-break-inside: avoid ; 
-                 margin: 0 ;
-	         margin-right: 2ex ;
-                 border: thin solid #888888; }
-
-
-
-
-/* Examples */
-pre.data	{ border: thin solid #88AA88;
-                  background-color: #E8F0E8;
-                  margin: 1em 4em 1em 0em ; }
-
-pre.dataExcerpt	{ border: thin solid #88AA88;
-                  background-color: #E8F0E8;
-                  margin: 1em 4em 1em 0em ; }
-/* Example Queries */
-.query          { background-color:#f7f8ff; }
-.queryExcerpt   { background-color:#f7f8ff; }
-pre.query	{ border:thin solid #8888aa;
-                  margin: 1em 4em 1em 0em ; }
-/* Example Results */
-.result		{ border: thin solid  #888888 ;
-                  background-color: #F0F0F0 ; }
-pre.resultGraph	{  margin: 0em 0em 0em 0em ; /* Top Right Bottom Left */
-                   padding: 0ex;
-                   font-size: 100% ;
-                   page-break-inside: avoid ; }
-pre.resultSet	{  margin: 0em 0em 0em 0em ; /* Top Right Bottom Left */
-                   padding: 0ex;
-                   font-size: 100% ;
-                   page-break-inside: avoid ; }
-pre.resultAsk	{  margin: 0em 0em 0em 0em ; /* Top Right Bottom Left */
-                   padding: 0ex;
-                   font-size: 100% ;
-                   page-break-inside: avoid ; }
-pre.resultTurtle{  margin: 0em 0em 0em 0em ; /* Top Right Bottom Left */
-                   padding: 0ex;
-                   font-size: 100% ;
-                   page-break-inside: avoid ; }
-
-pre.result	{ margin: 1em 4em 1em 0em ; }
-
-div.result	{ font-family: monospace;
-                  margin:  1em 4em 1em 0em ;
-                  padding: 1ex ; }
-
-.result table	{ border-collapse: collapse; }
-.result table td{ border-width: 1px ;
-                  border-color : black ; 
-                  font-family: monospace ;
-                  empty-cells: show;
-                  padding-left: 1ex ; padding-right: 1ex ;
-                  vertical-align:top;
-                  text-align: left ; } 
-/*  spacing: 0 ;*/
-.result table th{ border-width: 1px ;
-                  font-family: monospace ;
-                  border-color: black ;
-                  empty-cells: show;
-                  padding-left: 1ex ; padding-right: 1ex ;
-                  vertical-align:top;
-                  text-align:center; } 
-
-/* Examples : Algebra */
-div.algExample {  border: thin solid #888888;
-                  page-break-inside: avoid ;
-                  padding:0.5em ; margin:0.5em ;
-                  margin-left: 2em ; margin-right: 2em ;
-                  font-family:monospace ; }
-
-div.algExample1 { padding:0.5em ; background-color: #F0F0FF ; }
-div.algExample2 { padding:0.5em ; margin-top: 0.5em ; background-color: #F0FFF0 ; }
-
-/* Grammar Mark-up */
-.operator	{ color: #3f3f5f;
-                  text-transform: uppercase; }
-.function	{ color: #3f3f5f;
-                }
-
-/* Tuned to cope with different browsers behaviours */
-div.grammarTable table	{ border-style: solid ;
-			  border-width: 1px ;
-			  border-color: #AAA ;
-			  border-spacing: 0px ; 
-			  border-collapse: collapse ; }
-
-div.grammarTable table * { border-left-width: 0px ;
-			   border-right-width: 0px ;
-			   border-color: #AAA ; } 
-
-div.grammarTable table * tr   { border-top-style: solid ;
-			  border-top-width: 1px ;
-			  border-top-color: #AAA ; } 
-
-.grammar	{ text-align: left ;
-                  vertical-align: top ; }
-.token		{ color: #3f3f5f; }
-table.FAndOTable .token		{ color: #00c; }
-table.FAndOTable .token:visited		{ color: #a0c; }
-.gRuleHead	{ font-style: italic ;
-                  font-family: monospace ; }
-.gRuleBody	{ font-family: monospace ; }
-.gRuleLabel	{ font-family: monospace ; }
-
-.code		{ font-family: monospace; font-size: 100%; }
-pre.code	{ font-family: monospace; font-size: 100%; margin: 0 ; }
-
-/* Table of Contents */
-.toc		{ text-indent: 0; }
-DIV.toc UL UL, DIV.toc OL OL {margin-left: 0}
-DIV.toc UL UL UL, DIV.toc OL OL OL {margin-left: 1em}
-DIV.toc UL UL UL UL, DIV.toc OL OL OL OL {margin-left: 0}
-LI.tocline1	{ font-weight: bold}
-LI.tocline2	{ font-weight: normal}
-LI.tocline4	{ font-style: italic}
-/* The border in the following rule crashes NN4 on fonts.html :-(
-DIV.subtoc	{ padding: 1em; border: solid black thin; margin: 1em 0;
-                  background: #ddd} */
-DIV.toc, UL.index, DT { text-align: left; }
-
-
-/* References to the Rdf Data Model */
-span.rdfDM	{ color: #11d; }
-
-
-/* Truth Table */
-  .truth	{ font-family: monospace; }
-  .error	{ color: #ff1f1f; }
-  table.truthTable td	{ text-align: center; font-family: monospace; }
-  table.truthTable th	{ background-color: #dfdfdf; }
-  table.truthTable tbody th	{ font-weight: normal; font-family: monospace; }
-
-/* Casting table */
-table.casting	{ font-size: x-small; }
-
-.castY	{ background-color: #7FFF7F;
-                  color: black; }
-
-.castN	{ background-color: #FF7F7F;
-                  color: black; }
-
-.castM	{ background-color: white;
-                  color: black; }
-
-span.cancast:hover { background-color: #ffa;
-                     color: black; }
-
-.SPARQLoperator	{ background-color: #FFFFbf; /* yellow */
-          }
-
-.owlnonterminal {
-    font-weight: bold;
-    font-family: sans-serif;
-    font-size: 95%;
-}
-.owlgrammar {
-    margin-top: 1ex;
-    margin-bottom: 1ex;
-    padding-left: 1ex;
-    padding-right: 1ex;
-    padding-top: 1ex;
-    padding-bottom: 0.6ex;
-    border: 1px dashed #2f6fab;
-    font-family: monospace;
-}
-
-      /* ReSpec */
-      dfn { font-style: normal ; }
-      /* ReSpec */
-
-  code           { font-family: monospace; }
-
-  div.constraint,
-  div.issue,
-  div.note,
-  div.notice     { margin-left: 2em; }
-
-  ol.enumar      { list-style-type: decimal; }
-  ol.enumla      { list-style-type: lower-alpha; }
-  ol.enumlr      { list-style-type: lower-roman; }
-  ol.enumua      { list-style-type: upper-alpha; }
-  ol.enumur      { list-style-type: upper-roman; }
-
-
-  div.exampleInner pre { margin-left: 1em;
-                       margin-top: 0em; margin-bottom: 0em}
-  div.exampleOuter {border: 4px double gray;
-                  margin: 0em; padding: 0em}
-  div.exampleInner { background-color: #d5dee3;
-                   border-top-width: 4px;
-                   border-top-style: double;
-                   border-top-color: #d3d3d3;
-                   border-bottom-width: 4px;
-                   border-bottom-style: double;
-                   border-bottom-color: #d3d3d3;
-                   padding: 4px; margin: 0em }
-  div.exampleWrapper { margin: 4px }
-  div.exampleHeader { font-weight: bold;
-                    margin: 4px}
-    </style>
   </head>
   <body>
     <section id="abstract">
@@ -486,10 +196,9 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           identify a resource, and the resource can have a representation that serializes that graph
           (or, more precisely: by an RDF document of the graph)</p>
         <p>Consider the following HTTP request to a server that implements this protocol:</p>
-        <pre class="defn">    GET /rdf-graphs/employees HTTP/1.1
+        <pre class="http">    GET /rdf-graphs/employees HTTP/1.1
     Host: example.com
-    Accept: text/turtle; charset=utf-8
-        </pre>
+    Accept: text/turtle; charset=utf-8</pre>
 
         <p>
           Per <a href="#rfc2616">[RFC2616]</a>, the most common usage of a Request-URI is to
@@ -506,7 +215,7 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           In this way, the server would route operations onto a <em>named graph</em> in a Graph Store via
           its Graph IRI. However, in using an IRI in this way, we are not <em>directly</em> identifying an
           RDF graph but rather the RDF graph content that is represented by an RDF document, which is a
-          serialization of that graph. Intuitively, the set of interpretations that satisfy 
+          serialization of that graph. Intuitively, the set of interpretations that satisfy
           <a href="#RDF-MT">[RDF-MT]</a> the RDF graph the RDF document <em>serializes</em> can be thought of as
           this RDF graph content.
         </p>
@@ -522,11 +231,11 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           request. At the head of the arrows leaving RDF graph content is the
           message body for the corresponding response.
         </p>
-        <p>
-          <img src="./ProtocolModel.jpg" alt="Protocol model diagram"><br>
-          <b>Figure 1</b>: A diagram of the protocol model for direct graph
-          references.
-        </p>
+        <figure>
+          <img src="./ProtocolModel.svg" alt="Protocol model diagram"><br>
+          <figcaption>A diagram of the protocol model for direct graph
+          references.</figcaption>
+        </figure>
       </section>
 
       <section id="indirect-graph-identification">
@@ -553,7 +262,7 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           convention and provides a specific interface whereby a graph IRI can
           be embedded within the query component of the request IRI:
         </p>
-        <pre class="defn">    GET /rdf-graph-store?<strong>graph</strong>=<em>http%3A//www.example.com/other/graph</em> HTTP/1.1 
+        <pre class="http">    GET /rdf-graph-store?<strong>graph</strong>=<em>http%3A//www.example.com/other/graph</em> HTTP/1.1
     Host: example.com
     Accept: text/turtle; charset=utf-8
         </pre>
@@ -573,12 +282,12 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           <code>400 Bad Request</code> if it is not. The diagram below
           illustrates this.
         </p>
-        <p>
-          <img src="./ProtocolModelIndirect.jpg" alt="Protocol model diagram for
+        <figure>
+          <img src="./ProtocolModelIndirect.svg" alt="Protocol model diagram for
           indirect manipulation"><br>
-          <b>Figure 2</b>: A diagram of the protocol model for indirect graph
-          references (uses the same legend as the previous diagramT).
-        </p>
+          <figcaption>A diagram of the protocol model for indirect graph
+          references (uses the same legend as the previous diagramT).</figcaption>
+        </figure>
         <p>As indicated
           in <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.3">section
           3.3</a> of <a href="#rfc3986">[RFC3986]</a>, the path component (of an
@@ -597,12 +306,12 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           indirectly identifies the default graph in the Graph Store. In this way,
           the example above can be modified to a request for an RDF/XML document
           that serializes the default graph in the Graph Store:</p>
-        <pre class="defn">    GET /rdf-graph-store?<strong>default</strong> HTTP/1.1
+        <pre class="http">    GET /rdf-graph-store?<strong>default</strong> HTTP/1.1
     Host: example.com
     Accept: text/turtle; charset=utf-8
         </pre>
         <p>In a request such as:</p>
-        <pre class="defn">    GET /rdf-graph-store?<strong>graph</strong>=<em>http%3A//www.example.com/other/graph</em> HTTP/1.1
+        <pre class="http">    GET /rdf-graph-store?<strong>graph</strong>=<em>http%3A//www.example.com/other/graph</em> HTTP/1.1
     Host: example.com
     Accept: text/turtle; charset=utf-8
         </pre>
@@ -614,7 +323,7 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           priori.
       </section>
     </section>
-    
+
     <section id="graph-management">
       <h2>Graph Management Operations</h2>
       <p>
@@ -662,7 +371,7 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
         as If-Modified-Since that are intended to reduce unnecessary network
         usage should be handled appropriately by implementations of this
         protocol per <a href="#rfc2616">[RFC2616]</a>.</p>
-      
+
       <section id="status-codes">
         <h3>Status Codes</h3>
         <p>
@@ -698,20 +407,20 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           usage.</p>
         <p>
           The following two operations are considered to be equivalent</p>
-        <pre class="defn">    GET /rdf-graph-store?graph=..graph_uri.. HTTP/1.1
+        <pre class="http">    GET /rdf-graph-store?graph=..graph_uri.. HTTP/1.1
     Host: example.com
     Accept: text/turtle; charset=utf-8
     </pre>
-        <pre class="defn">    CONSTRUCT { ?s ?p ?o } WHERE { GRAPH &lt;graph_uri&gt; { ?s ?p ?o } }
+        <pre class="sparql">    CONSTRUCT { ?s ?p ?o } WHERE { GRAPH &lt;graph_uri&gt; { ?s ?p ?o } }
         </pre>
         <p>
           Where the request involves the <em>default</em> query component, the
           following two operations are equivalent</p>
-        <pre class="defn">    GET /rdf-graph-store?default HTTP/1.1
+        <pre class="http">    GET /rdf-graph-store?default HTTP/1.1
     Host: example.com
     Accept: text/turtle; charset=utf-8
         </pre>
-        <pre class="defn">    CONSTRUCT { ?s ?p ?o } WHERE { ?s ?p ?o } 
+        <pre class="sparql">    CONSTRUCT { ?s ?p ?o } WHERE { ?s ?p ?o }
         </pre>
         <p>
           The response to such request SHOULD be made cacheable wherever
@@ -766,24 +475,24 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           the enclosed RDF payload as RDF graph content. In the examples below,
           the initial HTTP request MUST be understood to have the same effect as
           the sequence of SPARQL Update operations that follow</p>
-        <pre class="defn">    PUT /rdf-graph-store?graph=..graph_uri.. HTTP/1.1
+        <pre class="http">    PUT /rdf-graph-store?graph=..graph_uri.. HTTP/1.1
     Host: example.com
     Content-Type: text/turtle
-    
-    ... RDF payload ...    
+
+    ... RDF payload ...
         </pre>
-        <pre class="defn">    DROP SILENT GRAPH &lt;graph_uri&gt;;
-    INSERT DATA { GRAPH &lt;graph_uri&gt; { .. RDF payload .. } }   
+        <pre class="sparql">    DROP SILENT GRAPH &lt;graph_uri&gt;;
+    INSERT DATA { GRAPH &lt;graph_uri&gt; { .. RDF payload .. } }
         </pre>
         <p>In the case where the default graph is targeted (via <em>default</em> query component) for management, the following operations are equivalent</p>
-        <pre class="defn">    PUT /rdf-graph-store?default HTTP/1.1
+        <pre class="http">    PUT /rdf-graph-store?default HTTP/1.1
     Host: example.com
     Content-Type: text/turtle
-    
-    ... RDF payload ...    
+
+    ... RDF payload ...
         </pre>
-        <pre class="defn">    DROP SILENT DEFAULT;
-    INSERT DATA { .. RDF payload .. } 
+        <pre class="sparql">    DROP SILENT DEFAULT;
+    INSERT DATA { .. RDF payload .. }
         </pre>
         <p>
           Either the request or the encoded IRI (embedded in the query
@@ -829,19 +538,19 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           Not Found</code> response code. An example of when the method may be
           overridden is in a content management system with optimistic
           concurrency controls.</p>
-        <pre class="defn">    DELETE /rdf-graph-store?graph=..graph_uri.. HTTP/1.1
+        <pre class="http">    DELETE /rdf-graph-store?graph=..graph_uri.. HTTP/1.1
     Host: example.com
         </pre>
         <p>
           Is equivalent to:</p>
-  <pre class="defn">    DROP GRAPH &lt;graph_uri&gt; 
+  <pre class="sparql">    DROP GRAPH &lt;graph_uri&gt;
   </pre>
         <p>in the case where a named graph is targeted for management. Otherwise, the following</p>
-        <pre class="defn">    DELETE /rdf-graph-store?default HTTP/1.1
+        <pre class="http">    DELETE /rdf-graph-store?default HTTP/1.1
     Host: example.com
         </pre>
         <p>is equivalent to</p>
-        <pre class="defn">    DROP DEFAULT
+        <pre class="http">    DROP DEFAULT
         </pre>
         <p>
           A response code of <code>200 OK</code> or <code>204 No Content</code>
@@ -862,25 +571,25 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           RDF payload enclosed into the RDF graph content identified by the
           request or encoded IRI. The following two operations are considered to
           have the same effect</p>
-        <pre class="defn">    POST /rdf-graph-store?graph=..graph_uri.. HTTP/1.1
+        <pre class="http">    POST /rdf-graph-store?graph=..graph_uri.. HTTP/1.1
     Host: example.com
     Content-Type: text/turtle
-    
-    ... RDF payload ...    
+
+    ... RDF payload ...
         </pre>
-        <pre class="defn">    INSERT DATA { GRAPH &lt;graph_uri&gt; { .. RDF payload .. } }
+        <pre class="sparql">    INSERT DATA { GRAPH &lt;graph_uri&gt; { .. RDF payload .. } }
         </pre>
         <p>
           In the case where a default graph is targeted for management, the
           following are equivalent
         </p>
-        <pre class="defn">    POST /rdf-graph-store?default HTTP/1.1
+        <pre class="http">    POST /rdf-graph-store?default HTTP/1.1
     Host: example.com
     Content-Type: text/turtle
-    
-    ... RDF payload ...    
+
+    ... RDF payload ...
         </pre>
-        <pre class="defn">    INSERT DATA { .. RDF payload .. } 
+        <pre class="sparql">    INSERT DATA { .. RDF payload .. }
         </pre>
         <p>
           As mentioned earlier, "multipart/form-data" can be dispatched to
@@ -965,7 +674,7 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           produce a new version.</p>
       </section>
     </section>
-    
+
     <section id="security-original">
       <h2>Security Considerations</h2>
       <p>As with any protocol that is implemented as a layer above HTTP,
@@ -996,7 +705,7 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
         <li>Added clarifying language indicating that indirect graph IRIs are UTF-8 encoded.</li>
       </ul>
     </section>
-    
+
     <section id="sec-bibliography">
       <h2>References</h2>
 
@@ -1038,7 +747,7 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
         </dl>
       </section>
     </section>
-    
+
     <section id="ackacknowledgements">
       <h2>Acknowledgements</h2>
       <p>
@@ -1056,23 +765,23 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
       <h2>Privacy Considerations</h2>
       <p>TODO</p>
     </section>
-    
+
     <section id="security">
       <h2>Security Considerations</h2>
       <p>TODO</p>
     </section>
-    
+
     <section id="internationalization">
       <h2>Internationalization Considerations</h2>
-      <p>TODO</p>                
+      <p>TODO</p>
     </section>
-    
+
     <section class="appendix informative" id="changes-from-sparql11">
       <h2>Change Log</h2>
       <p>TODO</p>
-    </section>   
-    
+    </section>
+
     <section id="index"></section>
-    
+
   </body>
 </html>
