@@ -14,8 +14,7 @@
       --identify: #145fd7;
       --interpret: #d92d3f;
       --serialize: #e97817;
-      --graph: #194f91;
-      --graph-light: #dceafe;
+      --accent: #194f91;
       --shadow: #00000055;
     }
 
@@ -30,8 +29,7 @@
         --identify: #69a5ff;
         --interpret: #ff6475;
         --serialize: #f6a04d;
-        --graph: #8bbcff;
-        --graph-light: #19365f;
+        --accent: #8bbcff;
         --shadow: #000000aa;
       }
     }
@@ -51,16 +49,16 @@
 
   <defs>
     <marker id="arrow-request" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--foreground)"/>
+      <path d="M0 0 10 5 0 10z" fill="var(--foreground)"/>
     </marker>
     <marker id="arrow-identify" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--identify)"/>
+      <path d="M0 0 10 5 0 10z" fill="var(--identify)"/>
     </marker>
     <marker id="arrow-interpret" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--interpret)"/>
+      <path d="M0 0 10 5 0 10z" fill="var(--interpret)"/>
     </marker>
     <marker id="arrow-serialize" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--serialize)"/>
+      <path d="M0 0 10 5 0 10z" fill="var(--serialize)"/>
     </marker>
     <filter id="shadow" x="-25%" y="-30%" width="150%" height="170%">
       <feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="var(--shadow)"/>
@@ -69,9 +67,32 @@
       <stop offset="0" stop-color="var(--surface-alt)"/>
       <stop offset="1" stop-color="var(--surface)"/>
     </linearGradient>
+    <rect id="server-unit" x="9" y="9" width="36" height="11" rx="1" fill="var(--surface)" stroke="var(--surface-edge)" stroke-width=".8"/>
+    <symbol id="rdf-logo" viewBox="40 -12 390 420">
+      <path d="m383.476 267.343c-2.544-1.346-5.14-2.493-7.743-3.516l1.863-.15s-16.608-7.354-18.057-60.722c-1.438-53.372 15.828-62.478 15.828-62.478l-2.48.109c13.045-6.69 24.265-17.267 31.669-31.216 19.295-36.291 5.488-81.362-30.81-100.657-36.31-19.276-81.372-5.506-100.656 30.817-7.927 14.899-10.178 31.273-7.677 46.733l-.851-1.306s4.373 19.365-41.032 47.55c-45.397 28.2-65.877 14.159-65.877 14.159l1.302 1.925c-1.298-.803-2.544-1.624-3.901-2.333-36.306-19.294-81.38-5.509-100.667 30.804-19.281 36.309-5.489 81.365 30.813 100.668 27.064 14.364 58.974 10.36 81.461-7.655l-.487.946s16.531-13.599 64.16 11.973c37.601 20.178 43.184 39.956 43.899 47.383-.983 27.57 13.388 54.618 39.389 68.433 36.301 19.299 81.374 5.498 100.657-30.804 19.292-36.302 5.507-81.382-30.803-100.663zm-83.934 9.785c-6.018 2.129-23.203 4.487-59.389-14.921-39.187-21.04-45.005-38.615-45.855-43.891.557-6.401.202-12.791-.891-19.02l.239.359s-3.189-17.096 41.65-44.943c40.133-24.908 58.376-19.955 61.771-18.653 2.185 1.485 4.45 2.867 6.825 4.131 4.518 2.398 9.174 4.283 13.888 5.672 5.52 5.257 15.678 20.178 16.733 59.413 1.078 39.535-10.533 54.779-16.865 60.168-6.526 2.956-12.626 6.897-18.106 11.685z" fill="#0C479C"/>
+      <path d="m294.631 32.4c-21.659 23.694-22.118 58.544-1.246 78.264-10.316-9.935-10.093-30.608.33-50.387 1.342-1.774 5.224-5.961 10.898-4.055.569.194.951.245 1.17.213 1.284.278 2.601.439 3.96.381 8.622-.393 15.288-7.684 14.898-16.307-.175-3.868-1.78-7.292-4.26-9.92 20.007-13.107 42.968-14.61 52.375-6.016l.359.025c-21.49-19.628-56.622-16.122-78.484 7.802zm-218.426 218.981c-.184-.19-.371-.406-.562-.598.121.125.235.279.378.407l.184.191zm.689-78.861c-21.663 23.694-22.114 58.541-1.251 78.264-10.313-9.935-10.092-30.608.331-50.387 1.345-1.778 5.231-5.961 10.906-4.055.565.195.946.242 1.167.212 1.283.275 2.603.44 3.959.377 8.623-.392 15.288-7.684 14.899-16.303-.179-3.867-1.782-7.296-4.252-9.92 19.995-13.107 42.959-14.617 52.366-6.021l.355.03c-21.483-19.631-56.623-16.126-78.48 7.803zm229.807 197.495c-.187-.191-.374-.404-.564-.594.117.125.237.279.378.402l.186.192zm.689-78.87c-21.666 23.704-22.118 58.553-1.254 78.276-10.317-9.935-10.09-30.611.331-50.388 1.344-1.781 5.227-5.96 10.906-4.053.568.189.941.242 1.166.212 1.282.277 2.605.44 3.963.381 8.617-.396 15.28-7.692 14.891-16.32-.176-3.864-1.781-7.288-4.252-9.917 20.002-13.103 42.959-14.61 52.37-6.016l.355.029c-21.483-19.631-56.625-16.123-78.476 7.796z" fill="#fff"/>
+    </symbol>
   </defs>
 
   <rect class="bg" width="536" height="327"/>
+
+  <!-- HTTP server -->
+  <g transform="translate(83 20)" aria-label="HTTP server">
+    <!-- Three rack units in a shallow server cabinet -->
+    <path d="M50 5 58 1v45l-8 4z" fill="var(--surface-alt)" stroke="var(--surface-edge)" stroke-linejoin="round"/>
+    <path d="M4 5 12 1h46l-8 4z" fill="var(--surface)" stroke="var(--surface-edge)" stroke-linejoin="round"/>
+    <rect x="4" y="5" width="46" height="45" rx="2" fill="url(#server-face)" stroke="var(--surface-edge)"/>
+
+    <use href="#server-unit"/>
+    <use href="#server-unit" y="13"/>
+    <use href="#server-unit" y="26"/>
+    <text x="13" y="17" fill="var(--foreground)" font-family="Arial, Helvetica, sans-serif" font-size="7" font-weight="700">HTTP</text>
+    <path d="M13 26h15m-15 3h15m-15 12h15m-15 3h15" fill="none" stroke="var(--surface-edge)" stroke-width="1"/>
+    <circle cx="39" cy="14.5" r="1.6" fill="var(--accent)"/>
+    <circle cx="39" cy="27.5" r="1.6" fill="var(--accent)"/>
+    <circle cx="39" cy="40.5" r="1.6" fill="var(--accent)"/>
+    <path d="M10 50v2m34-2v2" stroke="var(--surface-edge)" stroke-width="2" stroke-linecap="round"/>
+  </g>
 
   <!-- Request target and graph store -->
   <g aria-label="An IRI identifies a graph store">
@@ -79,27 +100,25 @@
     <text class="text" x="188" y="35"><tspan>[ </tspan><tspan fill="var(--identify)" font-style="italic">IRI</tspan><tspan>, </tspan></text>
 
     <!-- Compact RDF graph-store symbol -->
-    <g transform="translate(222 23)" aria-label="Graph store">
-      <circle cx="9" cy="8" r="3.2" fill="var(--graph)"/>
-      <circle cx="2" cy="12" r="2.5" fill="var(--graph)"/>
-      <circle cx="10" cy="17" r="2.5" fill="var(--graph)"/>
-      <path d="M4 11 7 9 M8 11l1 4 M4 13l4 3" stroke="var(--graph)" stroke-width="1.4"/>
+    <g transform="translate(222 20)" aria-label="Graph store">
+      <use href="#rdf-logo" width="15" height="16" aria-hidden="true"/>
     </g>
     <text class="text" x="240" y="35">] ∈ Graph Store</text>
 
     <g transform="translate(225 45)" aria-label="HTTP endpoint">
-      <path d="M2 2h39l-2 31H0z" fill="url(#server-face)" stroke="var(--surface-edge)"/>
-      <path d="M5 6h31v12H4z" fill="var(--surface-alt)" stroke="var(--surface-edge)"/>
-      <path d="M1 33h38l5 5H-3z" fill="var(--surface-alt)" stroke="var(--surface-edge)"/>
-      <text class="text small" x="8" y="30" font-style="italic">HTTP</text>
+      <svg x="0" y="5" width="44" height="24" viewBox="0 0 373.71 200" aria-hidden="true">
+        <path d="M326,0H47.73L0,100,47.73,200H326l47.73-100ZM310.05,183.36H58.22L18.43,100,58.22,16.64H310.05L349.84,100Z" fill="#008ec7"/>
+        <polygon points="349.84 100.01 310.05 183.37 58.22 183.37 18.43 100.01 58.22 16.64 310.05 16.64 349.84 100.01" fill="#005b9b"/>
+        <path d="M128.05,71.89v59.53H114.27V107h-27v24.41H73.46V71.89H87.23V95.36h27V71.89Z M154.5,83.12H135.45V71.89h51.87V83.12h-19v48.3H154.5Z M207.9,83.12H188.85V71.89h51.87V83.12H221.67v48.3H207.9Z M287.62,74.53a20.45,20.45,0,0,1,9,7.48,20.67,20.67,0,0,1,3.14,11.48,20.73,20.73,0,0,1-3.14,11.44,20.06,20.06,0,0,1-9,7.48A33.55,33.55,0,0,1,273.88,115h-12v16.42H248.12V71.89h25.76A33.05,33.05,0,0,1,287.62,74.53Zm-5.06,26.57a9.33,9.33,0,0,0,3.23-7.61c0-3.34-1.08-5.91-3.23-7.69s-5.3-2.68-9.44-2.68H261.89v20.66h11.23Q279.33,103.78,282.56,101.1Z" fill="#fff"/>
+      </svg>
     </g>
-    <path class="identify line" d="M207 49v20c0 16 8 25 22 31" marker-end="url(#arrow-identify)"/>
+    <path class="identify line" d="M207 49v20c0 10 6 15 17 21" marker-end="url(#arrow-identify)"/>
   </g>
 
   <!-- RDF graph content -->
   <g aria-label="RDF graph content">
     <ellipse cx="269" cy="127" rx="77" ry="36" fill="var(--surface)" stroke="var(--foreground)" filter="url(#shadow)"/>
-    <text class="text" x="269" y="131" text-anchor="middle">RDF Graph Content</text>
+    <text class="text" x="271" y="131" text-anchor="middle">RDF Graph Content</text>
   </g>
 
   <!-- HTTP request and response paths -->
@@ -124,15 +143,10 @@
 
   <!-- Interpreted RDF graph -->
   <g transform="translate(98 199)" aria-label="RDF graph">
-    <path d="M9 9 1 14m8-5 1 13M9 9l8-5m-7 18 8-7m-1-11 1 11" stroke="var(--graph)" stroke-width="1.8"/>
-    <circle cx="9" cy="9" r="4" fill="var(--graph-light)" stroke="var(--graph)"/>
-    <circle cx="1" cy="14" r="3" fill="var(--graph)"/>
-    <circle cx="10" cy="22" r="3" fill="var(--graph)"/>
-    <circle cx="17" cy="4" r="3" fill="var(--graph)"/>
-    <circle cx="18" cy="15" r="4" fill="var(--graph-light)" stroke="var(--graph)"/>
-    <text class="text small" x="-15" y="37">RDF Graph</text>
+    <use href="#rdf-logo" x="-1" width="25" height="27" aria-hidden="true"/>
+    <text class="text small" x="-16" y="45">RDF Graph</text>
   </g>
-  <path class="interpret line" d="M135 213h25c22 0 42-12 73-57" marker-end="url(#arrow-interpret)"/>
+  <path class="interpret line" d="M135 213h25c22 0 42-12 66-47" marker-end="url(#arrow-interpret)"/>
 
   <!-- Legend -->
   <g aria-label="Legend">
@@ -145,11 +159,11 @@
     <text class="text small" x="443" y="256" text-anchor="end" font-style="italic">interpreted as</text>
     <path class="interpret line" d="M456 251h66" marker-end="url(#arrow-interpret)"/>
 
-    <text class="text small" x="443" y="285" text-anchor="end">serialization of</text>
-    <path class="serialize line" d="M456 280h66" marker-end="url(#arrow-serialize)"/>
+    <text class="text small" x="443" y="275" text-anchor="end">serialization of</text>
+    <path class="serialize line" d="M456 270h66" marker-end="url(#arrow-serialize)"/>
 
-    <text class="text small" x="443" y="313" text-anchor="end">RDF payload</text>
-    <g transform="translate(460 292) rotate(-14 10 15)">
+    <text class="text small" x="443" y="303" text-anchor="end">RDF payload</text>
+    <g transform="translate(460 282) rotate(-14 10 15)">
       <path d="M0 0h14l7 7v26H0z" fill="var(--surface)" stroke="var(--surface-edge)"/>
       <path d="M14 0v7h7" class="icon-line"/>
       <text class="muted" x="3" y="15" font-family="monospace" font-size="5.5">RDF</text>
