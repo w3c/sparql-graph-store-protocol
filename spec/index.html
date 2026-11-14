@@ -308,7 +308,7 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           that serializes the default graph in the Graph Store:</p>
         <pre class="http">    GET /rdf-graph-store?<strong>default</strong> HTTP/1.1
     Host: example.com
-    Accept: text/turtle; charset=utf-8
+    Accept: application/rdf+xml
         </pre>
         <p>In a request such as:</p>
         <pre class="http">    GET /rdf-graph-store?<strong>graph</strong>=<em>http%3A//www.example.com/other/graph</em> HTTP/1.1
