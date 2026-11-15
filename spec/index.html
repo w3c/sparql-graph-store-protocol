@@ -304,11 +304,11 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           In a similar manner, a query component comprised of the
           string <em>default</em> can be used to indicate that the operation
           indirectly identifies the default graph in the Graph Store. In this way,
-          the example above can be modified to a request for an RDF/XML document
+          the example above can be modified to a request for a document
           that serializes the default graph in the Graph Store:</p>
         <pre class="http">    GET /rdf-graph-store?<strong>default</strong> HTTP/1.1
     Host: example.com
-    Accept: application/rdf+xml
+    Accept: text/turtle; charset=utf-8
         </pre>
         <p>In a request such as:</p>
         <pre class="http">    GET /rdf-graph-store?<strong>graph</strong>=<em>http%3A//www.example.com/other/graph</em> HTTP/1.1
