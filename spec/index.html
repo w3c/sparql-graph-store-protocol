@@ -351,11 +351,9 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
         RDF/XML.</p>
       <p>
         This protocol also supports the proper handling of operations involving
-        "multipart/form-data" <a href="#html4">[html4]</a>.  In particular,
-        section <a href="http://www.w3.org/TR/html4/interact/forms.html#h-17.13.4.2">17.13.4
-        Form content types</a> discusses how content indicated with
-        the <em>multipart/form-data</em> content type are messages containing a
-        series of parts. This protocol supports the submission of multiple RDF
+        "multipart/form-data" [[RFC7578]], with one HTTP representation
+        containing a series of parts.
+        This protocol supports the submission of multiple RDF
         documents in operations involving some indicated RDF graph content via
         this mechanism, where each document is uploaded using the standard web
         form file upload widget. The specifics of this mechanism is discussed in
@@ -701,8 +699,6 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
       <section id="section-Normative-References">
         <h3>Normative References</h3>
         <dl class="bib">
-          <dt id="html4">HTML 4.01</dt>
-          <dd><cite><a href="http://www.w3.org/TR/html4/">HTML 4.01 Specification</a>, D. Raggett, A. Le Hors, and I. Jacobs, 1999. (See http://www.w3.org/TR/html4/)</cite></dd>
           <dt id="rfc3986">RFC3986</dt>
           <dd><cite><a href="https://www.rfc-editor.org/rfc/rfc3986">Uniform Resource Identifier (URI): Generic Syntax</a></cite>, Berners-Lee, Fielding, Masinter, January 2005.</dd>
           <dt><span class="doc-ref" id="WEBARCH">WEBARCH</span></dt>
