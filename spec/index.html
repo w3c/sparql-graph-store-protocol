@@ -89,14 +89,14 @@
         </li>
         <li>
           self-describing messages (via the inherent characteristics of RDF as the framework for
-          a <a href="http://www.w3.org/2001/tag/doc/selfDescribingDocuments.html">Self-Describing
+          a <a href="https://www.w3.org/2001/tag/doc/selfDescribingDocuments.html">Self-Describing
           Semantic Web</a>)
         </li>
       </ol>
       <p>
         This specification relies on an intuitive interpretation of the
         underlying HTTP protocol semantics to determine interaction with a Graph
-        Store. Where the meaning of the operations are described, a SPARQL
+        Store. Where the meaning of the operations is described, a SPARQL
         Update equivalent syntax is shown for clarity.
       </p>
       <p>
@@ -113,7 +113,7 @@
       </p>
       <ul>
         <li><em>Architectural style</em> - An architectural design perspective that limits a system
-        in order to induce harmonous behavior</li>
+        in order to induce harmonious behavior</li>
         <li>
           <em>URI</em> - A Uniform Resource Identifier as defined in [[RFC3986]].</li>
         <li>
@@ -129,9 +129,9 @@
           object or service identified by an IRI.</li>
         <li>
           <em>Resolvable URI</em> - A URI whose resource potentially has one or
-more representations available via invoking HTTP <strong>GET</strong> on the URI
-as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
-        <li><em>Serialize (verb.)</em> - When used in a sentence where the subject is an RDF
+            more representations available via invoking HTTP <strong>GET</strong> on the URI
+            as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
+        <li><em>Serialize</em> (verb.) - When used in a sentence where the subject is an RDF
         document and the object is an RDF graph, this is understood to mean that the result of
         parsing the document is the graph.
         <li>
@@ -150,7 +150,7 @@ as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
           named graph and managed by a server that implements this protocol or identified by an
           indirect operation or the default graph. See [[WEBARCH]] for further
           discussion on Resources.</li>
-        <li><em>Semantic</em> (adj.) , semantics (n.). Concerned with the specification of
+        <li><em>Semantic</em> (adj.), semantics (n.). Concerned with the specification of
         meanings. Often contrasted with syntactic to emphasize the distinction between expressions
         and what they denote [[?RDF-SEMANTICS]].</li>
         <li><em>RDF payload</em> - The [[[RFC9110#representations|HTTP representation]]] comprised of
@@ -203,7 +203,7 @@ as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
           on the example.com server that describe employees. In addition, the request specifies the
           <strong>GET</strong> method, which means that a representation of these triples should be
           returned. In this case, the preferred representation format is
-          <em>text/turtle</em>
+          <em>text/turtle</em>.
         </p>
 
         <p>
@@ -211,17 +211,17 @@ as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
           its Graph IRI. However, in using an IRI in this way, we are not <em>directly</em> identifying an
           RDF graph but rather the RDF graph content that is represented by an RDF document, which is a
           serialization of that graph. Intuitively, the set of interpretations that satisfy
-          [[?RDF-SEMANTICS]] the RDF graph the RDF document <em>serializes</em> can be thought of as
+          [[?RDF-SEMANTICS]] the RDF graph which the RDF document <em>serializes</em> can be thought of as
           this RDF graph content.
         </p>
 
         <p>
           The diagram illustrates this distinction. This diagram illustrates the
           basic kind of operation where the request URI identifies the RDF graph
-          content being manipulated over the protocol.  Requests to an
-          implementation of this protocol receive HTTP requests using one of the
+          content being manipulated over the protocol.
+          Implementation of this protocol receive HTTP requests using one of the
           HTTP methods that is directed at some RDF graph content. Above the
-          arrows indicating the request is the relevant HTTP methods and below
+          arrows indicating the request are the relevant HTTP methods and below
           is any message body content or additional headers that accompany the
           request. At the head of the arrows leaving RDF graph content is the
           message body for the corresponding response.
@@ -245,8 +245,7 @@ as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
             content</li>
           <li>the naming authority is not available</li>
           <li>
-            the IRI is not
-            <a href="http://www.w3.org/TR/webarch/#uri-dereference">dereferenceable</a>
+            the IRI is not [[[WEBARCH#uri-dereference|dereferenceable]]]
             (i.e., when dereferenced, it does not produce a RDF graph
             representation)</li>
         </ul>
@@ -350,7 +349,7 @@ as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
         This protocol supports the submission of multiple RDF
         documents in operations involving some indicated RDF graph content via
         this mechanism, where each document is uploaded using the standard web
-        form file upload widget. The specifics of this mechanism is discussed in
+        form file upload widget. The specifics of this mechanism are discussed in
         <a href="#http-post" class="sectionRef"></a>.
       </p>
 
@@ -382,7 +381,7 @@ as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
           operation requires that it does, a <code>404 Not Found</code> response
           code MUST be provided in the response.</p>
         <p>
-          If a clients issues a POST or PUT with a content type that is not
+          If a client issues a POST or PUT with a content type that is not
           understood by the graph store, the implementation MUST respond
           with <code>415 Unsupported Media Type</code>. The use of 401 and 403
           is covered later in the section regarding security.</p>
@@ -399,7 +398,7 @@ as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
           usage.</p>
         <p>
           The following two operations are considered to be equivalent</p>
-        <pre class="http">    GET /rdf-graph-store?graph=..graph_uri.. HTTP/1.1
+        <pre class="http">    GET /rdf-graph-store?graph=graph_uri HTTP/1.1
     Host: example.com
     Accept: text/turtle; charset=utf-8
     </pre>
@@ -425,14 +424,14 @@ as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
           <h4>Ambiguity Regarding the Range of HTTP GET (Informative)</h4>
           <p>
             Historically, there has been
-            some <a href="http://www.w3.org/2001/tag/issues.html#httpRange-14">ambiguity</a>
+            some <a href="https://www.w3.org/2001/tag/issues.html#httpRange-14">ambiguity</a>
             regarding the nature of what is returned from dereferencing an
             IRI. When an HTTP
             <strong>GET</strong> is invoked with a request IRI, what is returned
             and what is its relation to the resource identified by the request
             IRI? In resolving this ambiguity, the W3C Technical Architecture
             Group specified
-            a <a href="http://lists.w3.org/Archives/Public/www-tag/2005Jun/0039">simple
+            a <a href="https://lists.w3.org/Archives/Public/www-tag/2005Jun/0039">simple
             rule</a> that determines the nature of the resource based on the
             response code returned. In this protocol, HTTP <strong>GET</strong>
             requests are used to retrieve a representation of the RDF graph
@@ -466,7 +465,7 @@ as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
           the enclosed RDF payload as RDF graph content. In the examples below,
           the initial HTTP request MUST be understood to have the same effect as
           the sequence of SPARQL Update operations that follow</p>
-        <pre class="http">    PUT /rdf-graph-store?graph=..graph_uri.. HTTP/1.1
+        <pre class="http">    PUT /rdf-graph-store?graph=graph_uri HTTP/1.1
     Host: example.com
     Content-Type: text/turtle
 
@@ -536,7 +535,7 @@ as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
           An example of when the method may be
           overridden is in a content management system with optimistic
           concurrency controls.</p>
-        <pre class="http">    DELETE /rdf-graph-store?graph=..graph_uri.. HTTP/1.1
+        <pre class="http">    DELETE /rdf-graph-store?graph=graph_uri HTTP/1.1
     Host: example.com
         </pre>
         <p>
@@ -569,7 +568,7 @@ as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
           RDF payload enclosed into the RDF graph content identified by the
           request or encoded IRI. The following two operations are considered to
           have the same effect</p>
-        <pre class="http">    POST /rdf-graph-store?graph=..graph_uri.. HTTP/1.1
+        <pre class="http">    POST /rdf-graph-store?graph=graph_uri HTTP/1.1
     Host: example.com
     Content-Type: text/turtle
 
@@ -686,10 +685,10 @@ as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
       </ul>
     </section>
 
-    <section id="ackacknowledgements">
+    <section id="acknowledgements">
       <h2>Acknowledgements</h2>
       <p>
-        Chimezie Ogbuji like to thank the following individuals for their input
+        Chimezie Ogbuji would like to thank the following individuals for their input
         into the creation of this document:
       </p>
       <p>
@@ -713,9 +712,9 @@ as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
         to a particular security policy in place. For example, when faced with
         an unauthenticated request to replace system critical RDF statements in
         a graph through the PUT method, applications may consider responding
-        with the <code>401 status code (Unauthorized)</code>, indicating that
+        with the <code>401 Unauthorized</code> status code, indicating that
         the appropriate authorization is required. In cases where authentication
-        is provided fails to meet the requirements of a particular access
+        is provided that fails to meet the requirements of a particular access
         control policy, the <code>403 status code (Forbidden)</code> can be sent
         back to the client to indicate this failure to meet the access control
         policy.</p>
