@@ -649,11 +649,11 @@
           associated with the graph IRI of the RDF graph content resource
           identified by the request IRI.</p>
         <p>
-          SPARQL 1.1 Update can be used as a patch document. In particular,
-          SPARQL 1.1 Update requests that manage the graph associated with the
+          [[[?SPARQL12-UPDATE]]] can be used as a patch document. In particular,
+          SPARQL Update requests that manage the graph associated with the
           RDF graph content identified (directly or indirectly) in the request
           can be used as the RDF payload of a HTTP PATCH request to modify
-          it. If a SPARQL 1.1 Update request is used as the RDF payload for a
+          it. If a SPARQL Update request is used as the RDF payload for a
           PATCH request that makes changes to more than one graph or the graph
           it modifies is not the one indicated, it would be prudent for the
           server to respond with a <code>422 Unprocessable Entity</code> status.
