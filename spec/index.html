@@ -119,8 +119,7 @@
             (REST) <span class="doc-ref">[REST]</span></em> - An architectural style
           for distributed hypermedia systems.</li>
         <li>
-          <em>URI</em> - A Uniform Resource Identifier as defined
-          in <a href="#rfc3986">[RFC3986]</a>.</li>
+          <em>URI</em> - A Uniform Resource Identifier as defined in [[RFC3986]].</li>
         <li>
           <em>IRI</em> - An Internationalized Resource Identifier as defined
           in <a href="#rfc3987">[RFC3987]</a>. Before an IRI found in a document
@@ -256,7 +255,7 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
             representation)</li>
         </ul>
         <p>
-          As discussed in <a href="#rfc3986">[RFC3986]</a>, query components are
+          As discussed in [[RFC3986]], query components are
           often used to carry identifying information in the form of key / value
           pairs where the value is another IRI. This protocol leverages this
           convention and provides a specific interface whereby a graph IRI can
@@ -269,7 +268,7 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
         <p>
           In the example above, the encoded graph IRI
           (<code>http://www.example.com/other/graph</code>) is
-          percent-encoded <a href="#rfc3986">[RFC3986]</a>
+          percent-encoded [[RFC3986]]
           and <em>indirectly</em> identifies RDF triples to manipulate. Any
           server that implements this protocol and receives a request IRI in
           this form MUST perform the indicated operation on the RDF graph
@@ -288,9 +287,8 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           <figcaption>A diagram of the protocol model for indirect graph
           references (uses the same legend as the previous diagram).</figcaption>
         </figure>
-        <p>As indicated
-          in <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.3">section
-          3.3</a> of <a href="#rfc3986">[RFC3986]</a>, the path component (of an
+        <p>As indicated in [[[RFC3986#section-3.3|RFC3986 section 3.3]]],
+          the path component (of an
           IRI) contains data, usually organized in hierarchical form, that,
           along with data in the non-hierarchical query component, serves to
           identify a resource within the scope of the IRI's scheme and naming
@@ -699,8 +697,6 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
       <section id="section-Normative-References">
         <h3>Normative References</h3>
         <dl class="bib">
-          <dt id="rfc3986">RFC3986</dt>
-          <dd><cite><a href="https://www.rfc-editor.org/rfc/rfc3986">Uniform Resource Identifier (URI): Generic Syntax</a></cite>, Berners-Lee, Fielding, Masinter, January 2005.</dd>
           <dt><span class="doc-ref" id="WEBARCH">WEBARCH</span></dt>
           <dd><cite><a href="http://www.w3.org/TR/2004/REC-webarch-20041215/">Architecture of the World Wide Web, Volume One</a></cite> , N. Walsh, I. Jacobs, Editors, W3C Recommendation, 15 December 2004,
             http://www.w3.org/TR/2004/REC-webarch-20041215/ . <a href="http://www.w3.org/TR/webarch/">Latest version</a> available at http://www.w3.org/TR/webarch/ .</dd>
