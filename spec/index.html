@@ -125,7 +125,7 @@
           Before an IRI found in a document is used by HTTP, the IRI is first
           converted to a URI.</li>
         <li>
-          <em>Resource</em> - Per <a href="#RDF-MT">[RDF-MT]</a>, the referents
+          <em>Resource</em> - Per [[[?RDF-SEMANTICS]]], the referents
           of RDF URI references are called "resources", but no assumptions are
           made about their nature. For the sake of this protocol,
           the [[RFC9110]] definition is used (unless the
@@ -156,7 +156,7 @@ as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
           discussion on Resources.</li>
         <li><em>Semantic</em> (adj.) , semantics (n.). Concerned with the specification of
         meanings. Often contrasted with syntactic to emphasize the distinction between expressions
-        and what they denote <a href="#RDF-MT">[RDF-MT]</a>.</li>
+        and what they denote [[?RDF-SEMANTICS]].</li>
         <li><em>RDF payload</em> - The [[[RFC9110#representations|HTTP representation]]] comprised of
           an RDF document that is sometimes included with the body of invocations of the operations
           defined here.</li>
@@ -215,7 +215,7 @@ as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
           its Graph IRI. However, in using an IRI in this way, we are not <em>directly</em> identifying an
           RDF graph but rather the RDF graph content that is represented by an RDF document, which is a
           serialization of that graph. Intuitively, the set of interpretations that satisfy
-          <a href="#RDF-MT">[RDF-MT]</a> the RDF graph the RDF document <em>serializes</em> can be thought of as
+          [[?RDF-SEMANTICS]] the RDF graph the RDF document <em>serializes</em> can be thought of as
           this RDF graph content.
         </p>
 
@@ -696,9 +696,6 @@ as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
       <section id="section-informative-references">
         <h3>Informative References</h3>
         <dl>
-          <dt><span class="doc-ref" id="RDF-MT">RDF-MT</span></dt>
-          <dd><cite><a href="http://www.w3.org/TR/2004/REC-rdf-mt-20040210/">RDF Semantics</a></cite> , P. Hayes, Editor, W3C Recommendation, 10 February 2004,
-            http://www.w3.org/TR/2004/REC-rdf-mt-20040210/ . <a href="http://www.w3.org/TR/rdf-mt/" title="Latest version of RDF Semantics">Latest version</a> available at http://www.w3.org/TR/rdf-mt/ .</dd>
           <dt><span class="doc-ref" id="SPARQL">SPARQL</span></dt>
           <dd><cite><a href="http://www.w3.org/TR/2013/REC-sparql11-query-20130321">SPARQL 1.1 Query Language</a></cite>, S. Harris, A. Seaborne, Editors, W3C Recommendation, 21 March 2013,
             http://www.w3.org/TR/2013/REC-sparql11-query-20130321. <a href="http://www.w3.org/TR/sparql11-query/" title="Latest version of SPARQL 1.1 Query Language">Latest version</a> available at
