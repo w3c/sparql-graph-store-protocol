@@ -533,9 +533,16 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           A request that uses the HTTP <strong>DELETE</strong> method SHOULD
           delete the RDF graph content identified by either the request or
           encoded IRI. This method MAY be overridden by human intervention (or
-          other means) on the origin server. If there is no such RDF graph
-          content in the Graph Store, the server MUST respond with a <code>404
-          Not Found</code> response code. An example of when the method may be
+          other means) on the origin server.
+          
+          If there is no such RDF graph content in the Graph Store
+          and the Graph Store records the existence of empty graphs,
+          the server SHOULD respond with a <code>404
+          Not Found</code> response code.
+          If the Graph Store does not record
+          the existence of empty graphs, the Graph Store SHOULD response with
+          one of the response codes indicating success described below.
+          An example of when the method may be
           overridden is in a content management system with optimistic
           concurrency controls.</p>
         <pre class="http">    DELETE /rdf-graph-store?graph=..graph_uri.. HTTP/1.1
@@ -675,23 +682,6 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
       </section>
     </section>
 
-    <section id="security-original">
-      <h2>Security Considerations</h2>
-      <p>As with any protocol that is implemented as a layer above HTTP,
-        implementations SHOULD take advantage of the many security-related
-        facilities associated with it and are not required to carry out
-        requested graph management operations that may be in contradistinction
-        to a particular security policy in place. For example, when faced with
-        an unauthenticated request to replace system critical RDF statements in
-        a graph through the PUT method, applications may consider responding
-        with the <code>401 status code (Unauthorized)</code>, indicating that
-        the appropriate authorization is required. In cases where authentication
-        is provided fails to meet the requirements of a particular access
-        control policy, the <code>403 status code (Forbidden)</code> can be sent
-        back to the client to indicate this failure to meet the access control
-        policy.</p>
-    </section>
-
     <section id="conformance">
       <h2>Conformance</h2>
     </section>
@@ -768,7 +758,19 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
 
     <section id="security">
       <h2>Security Considerations</h2>
-      <p>TODO</p>
+      <p>As with any protocol that is implemented as a layer above HTTP,
+        implementations SHOULD take advantage of the many security-related
+        facilities associated with it and are not required to carry out
+        requested graph management operations that may be in contradistinction
+        to a particular security policy in place. For example, when faced with
+        an unauthenticated request to replace system critical RDF statements in
+        a graph through the PUT method, applications may consider responding
+        with the <code>401 status code (Unauthorized)</code>, indicating that
+        the appropriate authorization is required. In cases where authentication
+        is provided fails to meet the requirements of a particular access
+        control policy, the <code>403 status code (Forbidden)</code> can be sent
+        back to the client to indicate this failure to meet the access control
+        policy.</p>
     </section>
 
     <section id="internationalization">
