@@ -143,7 +143,7 @@ as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
         concrete syntax, typically an RDF/XML or Turtle document.</li>
         <li>
           <em>Graph Store</em> - A mutable repository of RDF graphs managed by
-          one or more services <a href="#SPARQL-UPDATE">[SPARQL-UPDATE]</a>.</li>
+          one or more services [[?SPARQL-UPDATE]].</li>
         <li>
           <em>Graph IRI</em> - An IRI involved in this protocol that is
           specified as a request URI or embedded as the query component of a
@@ -501,7 +501,7 @@ as defined in [[[WEBARCH]]] [[WEBARCH]].</li>
           create the RDF graph content with that IRI in the underlying Graph
           Store. <code>DROP</code> is needed to remove any previous RDF graph
           content. Developers should refer
-          to <a href="#SPARQL-UPDATE">[SPARQL-UPDATE]</a> for the specifics of
+          to [[[?SPARQL-UPDATE]]] for the specifics of
           how to handle empty graphs. For implementations that support empty
           graphs, if the request body is empty and there is sufficient
           authorization to create a new named graph using the IRI used in the
