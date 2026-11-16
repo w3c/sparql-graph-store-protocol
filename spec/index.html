@@ -76,7 +76,7 @@
         This document describes an application protocol for the distributed
         updating and fetching of RDF graph content in a Graph Store via the
         mechanics of the Hypertext Transfer Protocol (HTTP)
-        <a href="#rfc3987">[RFC2616]</a>. In doing so, it appeals to the following interface
+        [[RFC9110]]. In doing so, it appeals to the following interface
         constraints that emphasize the core, architectural components underlying HTTP:
       </p>
       <ol>
@@ -129,7 +129,7 @@
           <em>Resource</em> - Per <a href="#RDF-MT">[RDF-MT]</a>, the referents
           of RDF URI references are called "resources", but no assumptions are
           made about their nature. For the sake of this protocol,
-          the <a href="#rfc2616">[RFC2616]</a> definition is used (unless the
+          the [[RFC9110]] definition is used (unless the
           term "RDF Resource" is used explicitly): a network-accessible data
           object or service identified by an IRI.</li>
         <li>
@@ -158,12 +158,12 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
         <li><em>Semantic</em> (adj.) , semantics (n.). Concerned with the specification of
         meanings. Often contrasted with syntactic to emphasize the distinction between expressions
         and what they denote <a href="#RDF-MT">[RDF-MT]</a>.</li>
-        <li><em>RDF payload</em> - The representation <a href="#rfc2616">[RFC2616]</a> comprised of
+        <li><em>RDF payload</em> - The [[[RFC9110#representations|HTTP representation]]] comprised of
           an RDF document that is sometimes included with the body of invocations of the operations
           defined here.</li>
       </ul>
       <p>Servers implementing this protocol are HTTP/1.1
-        servers <a href="#rfc2616">[RFC2616]</a> and MUST interpret request
+        servers [[RFC9110]] and MUST interpret request
         messages as graph management operations on an underlying Graph
         Store. The subject of the operation is indicated by the request IRI.
       </p>
@@ -201,7 +201,7 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
     Accept: text/turtle; charset=utf-8</pre>
 
         <p>
-          Per <a href="#rfc2616">[RFC2616]</a>, the most common usage of a Request-URI is to
+          Per [[[RFC9110]]], the most common usage of a Request-URI is to
           identify a resource on an origin server or gateway. In our example, the corresponding
           request,
           <strong>http://example.com/rdf-graphs/employees</strong> is meant to identify RDF triples
@@ -364,19 +364,19 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
 
       <p>
         Developers of implementations of this protocol should refer
-        to <a href="#rfc2616">[RFC2616]</a> for additional details of
+        to [[[RFC9110]]] for additional details of
         appropriate behavior beyond those specified here. Section 5 only serves
         to define the behavior specific to the manipulation of RDF graph
         content. For example, conditional requests that make use of headers such
         as If-Modified-Since that are intended to reduce unnecessary network
         usage should be handled appropriately by implementations of this
-        protocol per <a href="#rfc2616">[RFC2616]</a>.</p>
+        protocol per [[[RFC9110]]].</p>
 
       <section id="status-codes">
         <h3>Status Codes</h3>
         <p>
           Implementations MUST use the response status codes defined in
-          HTTP <a href="#rfc2616">[RFC2616]</a> to indicate the success or
+          HTTP [[[RFC9110#status.codes]]] to indicate the success or
           failure of an operation. Developers should consult the HTTP
           specification for detailed definitions of each status code. For
           example, in response to operations involving an RDF payload, if the
@@ -402,8 +402,8 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           A request that uses the HTTP <strong>GET</strong> method MUST retrieve
           an RDF payload that is a serialization of the named graph paired with
           the graph IRI in the Graph Store. Developers of implementations of
-          this protocol should refer to <a href="#rfc2616">[RFC2616]</a>
-          (section 13) for details on recommended cache-control headers and
+          this protocol should refer to [[[RFC9111]]] [[RFC9111]]
+          for details on recommended cache-control headers and
           usage.</p>
         <p>
           The following two operations are considered to be equivalent</p>
@@ -646,9 +646,8 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           cached RDF graph content differs from the current entity (as would be
           indicated by a change in Content-Length, Content-MD5, ETag or
           Last-Modified), then the cache MUST treat the cache entry as stale. As
-          mentioned in the beginning of the previous section, developers should
-          refer to <a href="#rfc2616">[RFC2616]</a> for the specifics of
-          this.</p>
+          mentioned, developers should refer to [[[RFC9111]]] for the specifics
+          of this.</p>
       </section>
 
       <section id="http-patch">
@@ -706,9 +705,6 @@ as defined in <a href= "#WEBARCH">[WEBARCH]</a>.</li>
           <dd><cite><a href="http://www.w3.org/TR/html4/">HTML 4.01 Specification</a>, D. Raggett, A. Le Hors, and I. Jacobs, 1999. (See http://www.w3.org/TR/html4/)</cite></dd>
           <dt id="rfc3986">RFC3986</dt>
           <dd><cite><a href="https://www.rfc-editor.org/rfc/rfc3986">Uniform Resource Identifier (URI): Generic Syntax</a></cite>, Berners-Lee, Fielding, Masinter, January 2005.</dd>
-          <dt id="rfc2616">RFC2616</dt>
-          <dd><cite><a href="http://www.ietf.org/rfc/rfc2616.txt">Hypertext Transfer Protocol - HTTP/1.1</a></cite>. J. Gettys, J. Mogul, H. Frystyk, L. Masinter, P. Leach, T. Berners-Lee, June 1999.
-            Available at http://www.ietf.org/rfc/rfc2616.txt.</dd>
           <dt><span class="doc-ref" id="WEBARCH">WEBARCH</span></dt>
           <dd><cite><a href="http://www.w3.org/TR/2004/REC-webarch-20041215/">Architecture of the World Wide Web, Volume One</a></cite> , N. Walsh, I. Jacobs, Editors, W3C Recommendation, 15 December 2004,
             http://www.w3.org/TR/2004/REC-webarch-20041215/ . <a href="http://www.w3.org/TR/webarch/">Latest version</a> available at http://www.w3.org/TR/webarch/ .</dd>
