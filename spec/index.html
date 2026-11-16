@@ -121,7 +121,7 @@
           Before an IRI found in a document is used by HTTP, the IRI is first
           converted to a URI.</li>
         <li>
-          <em>Resource</em> - Per [[[?RDF-SEMANTICS]]], the referents
+          <em>Resource</em> - Per [[[?RDF12-SEMANTICS]]], the referents
           of RDF URI references are called "resources", but no assumptions are
           made about their nature. For the sake of this protocol,
           the [[RFC9110]] definition is used (unless the
@@ -139,7 +139,7 @@
         concrete syntax, typically an RDF/XML or Turtle document.</li>
         <li>
           <em>Graph Store</em> - A mutable repository of RDF graphs managed by
-          one or more services [[?SPARQL-UPDATE]].</li>
+          one or more services [[?SPARQL12-UPDATE]].</li>
         <li>
           <em>Graph IRI</em> - An IRI involved in this protocol that is
           specified as a request URI or embedded as the query component of a
@@ -152,7 +152,7 @@
           discussion on Resources.</li>
         <li><em>Semantic</em> (adj.), semantics (n.). Concerned with the specification of
         meanings. Often contrasted with syntactic to emphasize the distinction between expressions
-        and what they denote [[?RDF-SEMANTICS]].</li>
+        and what they denote [[?RDF12-SEMANTICS]].</li>
         <li><em>RDF payload</em> - The [[[RFC9110#representations|HTTP representation]]] comprised of
           an RDF document that is sometimes included with the body of invocations of the operations
           defined here.</li>
@@ -187,7 +187,7 @@
 
       <section id="direct-graph-identification">
         <h3>Direct Graph Identification</h3>
-        <p>We recall from [[[?SPARQL-QUERY]]] [[?SPARQL-QUERY]] that IRIs for RDF graphs in SPARQL queries
+        <p>We recall from [[[?SPARQL12-QUERY]]] [[?SPARQL12-QUERY]] that IRIs for RDF graphs in SPARQL queries
           identify a resource, and the resource can have a representation that serializes that graph
           (or, more precisely: by an RDF document of the graph)</p>
         <p>Consider the following HTTP request to a server that implements this protocol:</p>
@@ -211,7 +211,7 @@
           its Graph IRI. However, in using an IRI in this way, we are not <em>directly</em> identifying an
           RDF graph but rather the RDF graph content that is represented by an RDF document, which is a
           serialization of that graph. Intuitively, the set of interpretations that satisfy
-          [[?RDF-SEMANTICS]] the RDF graph which the RDF document <em>serializes</em> can be thought of as
+          [[?RDF12-SEMANTICS]] the RDF graph which the RDF document <em>serializes</em> can be thought of as
           this RDF graph content.
         </p>
 
@@ -496,7 +496,7 @@
           create the RDF graph content with that IRI in the underlying Graph
           Store. <code>DROP</code> is needed to remove any previous RDF graph
           content. Developers should refer
-          to [[[?SPARQL-UPDATE]]] for the specifics of
+          to [[[?SPARQL12-UPDATE]]] for the specifics of
           how to handle empty graphs. For implementations that support empty
           graphs, if the request body is empty and there is sufficient
           authorization to create a new named graph using the IRI used in the
